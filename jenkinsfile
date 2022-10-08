@@ -1,0 +1,50 @@
+pipeline {
+	agent: docker
+	stages {
+		stage('Install Node') {
+			steps {
+
+			}
+		}
+		stage ('Extract Code') {
+			steps {
+
+			}
+		}
+		stage ('Install Dependencies') {
+			steps {
+
+			}
+		}
+		stage ('Build') {
+			steps {
+
+			}
+		}
+		stage ('Generate Docker Image') {
+			steps {
+
+			}
+		}
+		stage ('Pull Keep Docker Image') {
+			steps {
+
+			}
+		}
+		stage ('Connect EWS Image to Keep Image') {
+			steps {
+
+			}
+		}
+		stage ('Run Postman Tests') {
+			steps {
+
+			}
+		}
+		stage ('Push Docker Image to Registry') {
+			steps {
+
+			}
+		}
+	}
+}

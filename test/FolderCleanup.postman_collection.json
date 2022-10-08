@@ -1,0 +1,286 @@
+{
+	"info": {
+		"_postman_id": "07064ba5-f025-42ac-ab6d-9eede2b537b2",
+		"name": "Folder Cleanup",
+		"description": "Test to run to clean up any folders created by either Acceptance or EWS tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User Login - Get JWT Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"pm.test(\"Capture Bearer\", function () {",
+							"    pm.response.to.be.json;",
+							"    var jsonData = pm.response.json();",
+							"    pm.environment.set(\"AUTH_KEY\",jsonData.bearer);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(\"User Login\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"password\" : \"{{AdminPassword}}\",\t\n \"username\" : \"{{AdminName}}\"\n}"
+				},
+				"url": {
+					"raw": "{{HOST}}/auth",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find folders to clean up",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"const jsonData = JSON.parse(responseBody);",
+							"",
+							"const schema = {",
+							"    \"type\": \"array\",",
+							"    \"items\": [{",
+							"        \"type\": \"object\",",
+							"        \"properties\": {",
+							"            \"FolderId\": { \"type\":\"string\", \"minLength\": 32 },",
+							"            \"View\": { \"type\":\"string\" },",
+							"            \"DocumentCount\": { \"type\":\"number\" },",
+							"            \"DisplayName\": { \"type\":\"string\" },",
+							"            \"Type\": { \"type\":\"string\" },",
+							"            \"isFodler\": { \"type\":\"string\" }",
+							"        },",
+							"        required: [\"FolderId\", \"View\", \"DocumentCount\", \"DisplayName\", \"Type\"]",
+							"    }]",
+							"};",
+							"",
+							"pm.test(\"Verify body schema\", function() {",
+							"    pm.response.to.have.jsonSchema(schema);",
+							"});",
+							"",
+							"// List of names of folders created by automated tests",
+							"const namesToDelete = ['Friends', 'Enemies', 'Family', 'Coworkers', 'TestTA1', 'TestTA2', 'TestTA1Renamed', 'TestTA2Renamed', 'Todo', 'Done', 'Items', 'TestMessages', 'Friday Tasks', 'Friday Todos', 'EWSContacts', 'EWSContactsFolder2', 'Meeting Minutes', 'Meeting Details', 'Todos', 'Doneh\\t'];",
+							"",
+							"pm.test(\"Find folders to delete\", function () {",
+							"    ",
+							"    // Make a comma separated list of folder UIDs to be deleted",
+							"    let uidsToDelete = '';",
+							"    let activeFolderId = '';",
+							"    jsonData.forEach(folder => {",
+							"        if (namesToDelete.includes(folder.DisplayName)) {",
+							"            if (uidsToDelete.length === 0) {",
+							"                console.log(`Adding ${folder.DisplayName} in first slot of folders to delete`);",
+							"                uidsToDelete = folder.FolderId;",
+							"                activeFolderId = folder.FolderId;",
+							"            } else {",
+							"                console.log(`Adding ${folder.DisplayName} to list of folders to delete`);",
+							"                uidsToDelete = uidsToDelete + `,${folder.FolderId}`;",
+							"            }",
+							"        }",
+							"    });",
+							"",
+							"    console.log(`Found the following folder UIDs to delete: ${uidsToDelete}`);",
+							"",
+							"    if (uidsToDelete.length > 0) {",
+							"        console.log(`Saving ${uidsToDelete} to the environment`);",
+							"",
+							"        // Store all the uids to delete in a single environment variable",
+							"        pm.environment.set('foldersToDelete', uidsToDelete);",
+							"",
+							"        // Store the index of the next (first) item in the list to delete",
+							"        pm.environment.set('nextFolderIndex', 0);",
+							"",
+							"        // Store the uid of the next (first) folder to delete",
+							"        pm.environment.set('activeFolderId', activeFolderId);",
+							"    } else {",
+							"        // No folders were found that need to be deleted",
+							"        console.log('No folders that need to be deleted were found.  If you have identified a folder that should be deleted, add it to the namesToDelete array in this test.')",
+							"        postman.setNextRequest(null);",
+							"    }",
+							"    ",
+							"    ",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(\"Find folders to delete\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{AUTH_KEY}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{PIMHOST}}/labels/all",
+					"host": [
+						"{{PIMHOST}}"
+					],
+					"path": [
+						"labels",
+						"all"
+					]
+				},
+				"description": "This test fetches the list of folders and saves an array of uid's to the environment for those that need to be removed before we can run our tests."
+			},
+			"response": []
+		},
+		{
+			"name": "Delete active folder",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"// Get the list of folders to delete from the environment",
+							"let folderUids = pm.environment.get('foldersToDelete');",
+							"let folderUidsArray = folderUids.split(',');",
+							"",
+							"// Increment the next Index",
+							"nextIndex = parseInt(pm.environment.get('nextFolderIndex')) + 1;",
+							"",
+							"// If we've deleted all the folders in the array, unset the environment variables and exit",
+							"if (folderUidsArray.length === nextIndex) {",
+							"    pm.environment.unset('foldersToDelete');",
+							"    pm.environment.unset('nextFolderIndex');",
+							"    pm.environment.unset('activeFolderId');",
+							"    postman.setNextRequest(null);",
+							"}",
+							"else {",
+							"    // There is at least one more folder to delete.  Set the next folder as the active folder and save the new index.",
+							"    let activeFolder = folderUidsArray[nextIndex];",
+							"    pm.environment.set('nextFolderIndex', nextIndex);",
+							"    pm.environment.set('activeFolderId', activeFolder);",
+							"",
+							"    // Now run this test again until there are no more folders left to delete",
+							"    postman.setNextRequest(\"Delete active folder\");",
+							"}",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// Retrieve the uid of the next folder to delete",
+							"const activeFolderId = pm.environment.get('activeFolderId');",
+							"if (activeFolderId) {",
+							"    console.log(`Deleting folder ${activeFolderId}`);",
+							"} else {",
+							"    // Nothing queued up to delete",
+							"    console.log('No folders left to delete');",
+							"    postman.setNextRequest(null);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{AUTH_KEY}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PIMHOST}}/label/{{activeFolderId}}?documentdeletion=NONE",
+					"host": [
+						"{{PIMHOST}}"
+					],
+					"path": [
+						"label",
+						"{{activeFolderId}}"
+					],
+					"query": [
+						{
+							"key": "documentdeletion",
+							"value": "NONE"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

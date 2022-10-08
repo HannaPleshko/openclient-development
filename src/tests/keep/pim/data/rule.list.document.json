@@ -1,0 +1,120 @@
+[
+  {
+    "@unid": "09F714279A0B1FCD002586F500456A53",
+    "@noteid": 34702,
+    "@created": "2021-06-15T12:38:12Z",
+    "@lastmodified": "2021-06-15T12:38:43Z",
+    "@lastaccessed": "2021-06-15T12:38:43Z",
+    "@size": 558,
+    "@unread": true,
+    "@etag": "W/\" 60c89f53\"",
+    "@threadid": "09F714279A0B1FCD002586F500456A53",
+    "$FilterFormula": "CondSender_C := @LowerCase( @Name([Abbreviate]; @Unique( From:Principal:SMTPOriginator ) ) ) ; @If(( ( @Contains( CondSender_C ;\"tester\")) ) ; (@Do((@MailFilterAddToFolder(\"7B93F068ECAFB5C2002586C60072211F\"; @True)))); \"\" )",
+    "$FolderRef": "DC49C316F9AFD131852566520061CE09",
+    "$FolderRefFlags": [
+      0
+    ],
+    "$FolderRefID": [
+      1
+    ],
+    "$KeepPrivate": "1",
+    "$NoPurge": "",
+    "$TUA": "09F714279A0B1FCD002586F500456A53",
+    "$UpdatedBy": [
+      "CN=James Godwin/OU=USA/O=PNPHCL"
+    ],
+    "action": "1",
+    "ActionList": " move to folder HCLLabs\\Open Client",
+    "ActionListDisplay": "",
+    "behavior": "1",
+    "condition": "1",
+    "ConditionList": "   Sender contains Tester",
+    "ConditionListDisplay": "",
+    "CopyTo_Address": "",
+    "CopyTo_Choices": "1",
+    "DomainList": "",
+    "Enable": "1",
+    "ExceptionList": "",
+    "ExcludeFromView": [
+      "A",
+      "D"
+    ],
+    "ExpireDates": "D",
+    "ExpireNumber": 5,
+    "folder": "",
+    "Form": "Mailrule",
+    "Importance": "1",
+    "importancecond": "1",
+    "logic": "1",
+    "Operator": "0",
+    "OrderNum": "1",
+    "PROTECTFROMARCHIVE": "1",
+    "string": "",
+    "TokActionList": "1¦1¦HCLLabs\\Open Client",
+    "tokConditionList": "1¦1¦Tester¦0",
+    "tokExceptionList": "",
+    "Type": "0",
+    "referenceFolder": [
+      "DC49C316F9AFD131852566520061CE09"
+    ]
+  },
+  {
+    "@unid": "ABDF53ED04AF3D83002586F50045774E",
+    "@noteid": 34706,
+    "@created": "2021-06-15T12:38:45Z",
+    "@lastmodified": "2021-06-15T12:39:24Z",
+    "@lastaccessed": "2021-06-15T12:39:24Z",
+    "@size": 455,
+    "@unread": true,
+    "@etag": "W/\" 60c89f7c\"",
+    "@threadid": "ABDF53ED04AF3D83002586F50045774E",
+    "$FilterFormula": "CondSubject_C := @LowerCase( Subject ); @If((  !@Contains( CondSubject_C;\"success\") ) ; (@Do(@SetField(\"Importance\";\"1\"))); \"\" )",
+    "$FolderRef": "DC49C316F9AFD131852566520061CE09",
+    "$FolderRefFlags": [
+      0
+    ],
+    "$FolderRefID": [
+      2
+    ],
+    "$KeepPrivate": "1",
+    "$NoPurge": "",
+    "$TUA": "ABDF53ED04AF3D83002586F50045774E",
+    "$UpdatedBy": [
+      "CN=James Godwin/OU=USA/O=PNPHCL"
+    ],
+    "action": "1",
+    "ActionList": " change Importance to High",
+    "ActionListDisplay": "",
+    "behavior": "1",
+    "condition": "1",
+    "ConditionList": "   Subject does not contain success",
+    "ConditionListDisplay": "",
+    "CopyTo_Address": "",
+    "CopyTo_Choices": "1",
+    "DomainList": "",
+    "Enable": "1",
+    "ExceptionList": "",
+    "ExcludeFromView": [
+      "A",
+      "D"
+    ],
+    "ExpireDates": "D",
+    "ExpireNumber": 5,
+    "folder": "",
+    "Form": "Mailrule",
+    "Importance": "1",
+    "importancecond": "1",
+    "logic": "1",
+    "Operator": "0",
+    "OrderNum": "2",
+    "PROTECTFROMARCHIVE": "1",
+    "string": "",
+    "TokActionList": "2¦1¦",
+    "tokConditionList": "2¦2¦success¦0",
+    "tokExceptionList": "",
+    "Type": "0",
+    "referenceFolder": [
+      "DC49C316F9AFD131852566520061CE09"
+    ]
+  }
+]

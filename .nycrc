@@ -1,0 +1,7 @@
+{
+  "include": ["src"],
+  "exclude": ["src/tests/**"],
+  "extension": [".js", ".ts"],
+  "reporter": ["text", "lcov"],
+  "exclude-after-remap": false
+} 

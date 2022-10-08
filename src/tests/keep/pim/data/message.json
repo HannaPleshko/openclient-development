@@ -1,0 +1,85 @@
+{
+    "@unid": "77DB4C5F5B324B61002586B600631C08",
+    "@noteid": 17034,
+    "@created": "2021-04-13T18:02:32Z",
+    "@lastmodified": "2021-04-13T18:02:32Z",
+    "@lastaccessed": "2021-04-13T18:02:32Z",
+    "@size": 1148,
+    "@unread": false,
+    "@etag": "W/\" 6075dcb8\"",
+    "@threadid": "77DB4C5F5B324B61002586B600631C08",
+    "$Abstract": "Testing it stays in inbox",
+    "$altPrincipal": "CN=James Godwin/OU=USA/O=PNPHCL",
+    "$Disclaimed": "1",
+    "$FolderRefFlags": [
+        0.0
+    ],
+    "$FolderRefID": [
+        27.0
+    ],
+    "$KeepPrivate": "",
+    "$LangFrom": "",
+    "$langPrincipal": "",
+    "$Mailer": "Lotus Domino Web Server Release 11.0.1FP1 July 20, 2020",
+    "$MessageID": "<OF77DB4C5F.5B324B61-ON002586B6.00631C08-002586B6.00631C0A@LocalDomain>",
+    "$MIMETrack": [
+        "Serialize by http on miramare.projectkeep.io/ProjectKeep(Release 11.0.1FP1|July 20, 2020) at 04/13/2021 18:02:32",
+        "Serialize complete at 04/13/2021 18:02:32"
+    ],
+    "$NameLanguageTags": "",
+    "$Orig": "77DB4C5F5B324B61002586B600631C08",
+    "$Revisions": [
+        "MINIMUM"
+    ],
+    "$SendAt": "",
+    "$TUA": "77DB4C5F5B324B61002586B600631C08",
+    "$UpdatedBy": [
+        "CN=RustyG Miramare/O=ProjectKeep",
+        "CN=miramare.projectkeep.io/O=ProjectKeep"
+    ],
+    "$V2AttachmentOptions": "0",
+    "AltCopyTo": "",
+    "AltFrom": "CN=RustyG Miramare/O=ProjectKeep",
+    "AltSendTo": "CN=Ernie Muppet/O=ProjectKeep@Keep",
+    "Categories": [
+        ""
+    ],
+    "Classification": "",
+    "ConfidentialString": "",
+    "CopyTo": "",
+    "DeliveredDate": "2021-04-13T18:02:32Z",
+    "DeliveryPriority": "N",
+    "DeliveryReport": "B",
+    "DocExExpireDate": "",
+    "Encrypt": "0",
+    "ExpandPersonalGroups": "1",
+    "Form": "Memo",
+    "From": "CN=RustyG Miramare/O=ProjectKeep",
+    "Importance": "2",
+    "In_Reply_To": "",
+    "INetFrom": "rustyg.miramare@quattro.rocks",
+    "MIME_Version": "1.0",
+    "PostedDate": "2021-04-13T18:02:32Z",
+    "Principal": "CN=James Godwin/OU=USA/O=PNPHCL",
+    "References": "",
+    "RemoveAtClose": "",
+    "ReturnReceipt": "0",
+    "RouteServers": [
+        "CN=miramare.projectkeep.io/O=ProjectKeep"
+    ],
+    "RouteTimes": [
+        {
+            "from": "2021-04-13T18:02:32Z",
+            "to": "2021-04-13T18:02:32Z"
+        }
+    ],
+    "RR2": "",
+    "s_PlainEditor": "0",
+    "SaveOptions": "",
+    "SendTo": "CN=Ernie Muppet/O=ProjectKeep@Keep",
+    "Sign": "0",
+    "Subject": "This should not be deleted",
+    "referenceFolder": [
+        "38D46BF5E8F08834852564B500129B2C"
+    ]
+}

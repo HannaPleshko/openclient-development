@@ -1,0 +1,24 @@
+[
+  {
+    "@unid": "09F714279A0B1FCD002586F500456A53",
+    "@noteid": 34702,
+    "@index": "1",
+    "$114": "Infinity",
+    "$108": "Rule_On.gif",
+    "$111": "THEN  move to folder HCLLabs\\Open Client",
+    "$110": "1.0",
+    "$113": "",
+    "$112": "WHEN Sender contains Tester"
+  },
+  {
+    "@unid": "ABDF53ED04AF3D83002586F50045774E",
+    "@noteid": 34706,
+    "@index": "2",
+    "$114": "Infinity",
+    "$108": "Rule_On.gif",
+    "$111": "THEN  change Importance to High",
+    "$110": "2.0",
+    "$113": "",
+    "$112": "WHEN Subject does not contain success"
+  }
+]

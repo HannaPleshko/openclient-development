@@ -1,0 +1,1456 @@
+{
+  "name": "KeepPim",
+  "connector": "rest",
+   "crud": false,
+  "operations": [
+    {
+      "template": {
+        "method": "GET",
+        "url": "api/pim-v1/labels/all",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "includeUnreadCount": "{includeUnreadCount}",
+            "mailboxid": "{mailboxid}"
+        },
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "getLabels": ["authToken", "includeUnreadCount", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "GET",
+        "url": "api/pim-v1/label/{labelid}",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "includeUnreadCount": "{includeUnreadCount}",
+            "mailboxid": "{mailboxid}"
+        },
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "getLabel": ["authToken", "labelid", "includeUnreadCount", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "POST",
+        "url": "api/pim-v1/label",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+          "mailboxid": "{mailboxid}"
+        },
+        "body": "{createStructure}",
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "createLabel": ["authToken", "createStructure", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "DELETE",
+        "url": "api/pim-v1/label/{labelid}",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "mailboxid": "{mailboxid}",
+            "documentdeletion": "{documentdeletion=ALL}"
+        },
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "deleteLabel": ["authToken", "labelid","documentdeletion", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "PATCH",
+        "url": "api/pim-v1/label/{labelid}",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "mailboxid": "{mailboxid}"
+        },
+        "body": "{moveStructure}",
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "moveLabel": ["authToken", "labelid", "moveStructure", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "PUT",
+        "url": "api/pim-v1/label/{labelid}",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "mailboxid": "{mailboxid}"
+        },
+        "body": "{updateStructure}",
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "updateLabel": ["authToken", "labelid", "updateStructure", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "GET",
+        "url": "api/pim-v1/messages/{labelid}",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+          "documents": "{documents}",
+          "skip": "{skip}",
+          "count": "{count}",
+          "mailboxid": "{mailboxid}"
+        },
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "getMessages": ["authToken", "labelid", "documents", "skip", "count", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "GET",
+        "url": "api/pim-v1/inbox",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "documents": "{documents}",
+            "skip": "{skip}",
+            "count": "{count}",
+            "mailboxid": "{mailboxid}"
+        },
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "getInboxMessages": ["authToken", "documents", "skip", "count", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "GET",
+        "url": "api/pim-v1/drafts",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "documents": "{documents}",
+            "skip": "{skip}",
+            "count": "{count}",
+            "mailboxid": "{mailboxid}"
+        },
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "getDraftMessages": ["authToken", "documents", "skip", "count", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "GET",
+        "url": "api/pim-v1/trash",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "documents": "{documents}",
+            "skip": "{skip}",
+            "count": "{count}",
+            "mailboxid": "{mailboxid}"
+        },
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "getTrashMessages": ["authToken", "documents", "skip", "count", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "DELETE",
+        "url": "api/pim-v1/trash",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "mailboxid": "{mailboxid}"
+        },
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "emptyTrash": ["authToken", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "DELETE",
+        "url": "api/pim-v1/trash/{unid}",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "mailboxid": "{mailboxid}"
+        },
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "deleteItemFromTrash": ["authToken", "unid", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "GET",
+        "url": "api/pim-v1/junk",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "documents": "{documents}",
+            "skip": "{skip}",
+            "count": "{count}",
+            "mailboxid": "{mailboxid}"
+        },
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "getJunkMessages": ["authToken", "documents", "skip", "count", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "GET",
+        "url": "api/pim-v1/sent",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "documents": "{documents}",
+            "skip": "{skip}",
+            "count": "{count}",
+            "mailboxid": "{mailboxid}"
+        },
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "getSentMessages": ["authToken", "documents", "skip", "count", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "POST",
+        "url": "api/pim-v1/message",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "send": "{sendMessage}",          
+            "mailboxid": "{mailboxid}"
+        },
+        "body": "{messagestructure}",
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "createMessage": ["authToken", "messagestructure", "sendMessage", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "POST",
+        "url": "api/pim-v1/mime",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}",
+            "Content-Type": "text/base64"
+        },
+        "query": {
+            "send": "{sendMessage}",
+            "receipt": "{receipts}",
+            "mailboxid": "{mailboxid}"
+        },
+        "body": "{base64MimeMessage}",
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "createMimeMessage": ["authToken", "base64MimeMessage", "sendMessage", "receipts", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "PUT",
+        "url": "api/pim-v1/message/{messageid}/mime",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}",
+            "Content-Type": "text/base64"
+        },
+        "query": {
+            "send": "{sendMessage}",
+            "saveFolderId": "{saveFolderId}",
+            "receipt": "{receipts}",
+            "mailboxid": "{mailboxid}"
+        },
+        "body": "{base64MimeMessage}",
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "updateMimeMessage": ["authToken", "messageid", "base64MimeMessage", "sendMessage", "saveFolderId", "receipts", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "PATCH",
+        "url": "api/pim-v1/messages/{labelid}",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "mailboxid": "{mailboxid}"
+        },
+        "body": "{addRemoveStructure}",
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "moveMessages": ["authToken", "labelid", "addRemoveStructure", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "PATCH",
+        "url": "api/pim-v1/messages",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "mailboxid": "{mailboxid}"
+        },
+        "body": "{flagStructure}",
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "updateMessageFlags": ["authToken", "flagStructure", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "DELETE",
+        "url": "api/pim-v1/message/{messageid}/mime",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "mailboxid": "{mailboxid}"
+        },
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "deleteMessage": ["authToken", "messageid", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "GET",
+        "url": "api/pim-v1/message/{messageid}/mime",
+        "headers": {
+          "accept": "text/base64",
+          "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "allowchunked": false,
+            "mailboxid": "{mailboxid}"
+        },
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "getMimeMessage": ["authToken", "messageid", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "GET",
+        "url": "api/pim-v1/thread/{threadid}",
+        "headers": {
+          "accept": "application/json",
+          "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "mailboxid": "{mailboxid}"
+        },
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "getThread": ["authToken", "threadid", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "GET",
+        "url": "api/pim-v1/calendars",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "mailboxid": "{mailboxid}"
+        },
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "getCalendars": ["authToken", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "GET",
+        "url": "api/pim-v1/calendar/{calid}",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "mailboxid": "{mailboxid}",
+            "startdate": "{startDate}", 
+            "enddate": "{endDate}",
+            "skip": "{skip}",
+            "count": "{count}"
+        },
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "getCalendarEntries": ["authToken", "calid", "startDate", "endDate",  "skip", "count", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "GET",
+        "url": "api/pim-v1/calendar/{calid}/{entryid}",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "mailboxid": "{mailboxid}"
+        },
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "getCalendarEntry": ["authToken", "calid", "entryid", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "POST",
+        "url": "api/pim-v1/calendar/{calid}",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "mailboxid": "{mailboxid}",
+            "send": "{sendMeetingInvitations}"
+        },
+        "body": "{itemstructure}",
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "createCalendarItem": ["authToken", "calid", "itemstructure", "sendMeetingInvitations", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "PUT",
+        "url": "api/pim-v1/calendar/{calid}/{itemid}",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "mailboxid": "{mailboxid}"
+        },
+        "body": "{itemstructure}",
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "updateCalendarItem": ["authToken", "calid", "itemid", "itemstructure", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "PATCH",
+        "url": "api/pim-v1/calendar/{calid}/{itemid}",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "mailboxid": "{mailboxid}"
+        },
+        "body": "{itemstructure}",
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "modifyCalendarItem": ["authToken", "calid", "itemid", "itemstructure", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "DELETE",
+        "url": "api/pim-v1/calendar/{calid}/{itemid}",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "mailboxid": "{mailboxid}"
+        },
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "deleteCalendarItem": ["authToken", "calid", "itemid", "mailboxid"]
+      }
+    },
+
+    {
+      "template": {
+        "method": "GET",
+        "url": "api/pim-v1/calendarresponse/{calid}/{itemid}",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "mailboxid": "{mailboxid}"
+        },
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "getCalendarResponse": ["authToken", "calid", "itemid", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "POST",
+        "url": "api/pim-v1/calendarresponse/{calid}/{itemid}",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "preventDelete": "{preventDelete}",
+            "mailboxid": "{mailboxid}"
+        },
+        "body": "{invitationresponse}",
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "createCalendarResponse": ["authToken", "calid", "itemid", "invitationresponse", "preventDelete", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "GET",
+        "url": "api/pim-v1/attachments/{unid}/{attachmentName}",
+        "headers": {
+          "accept": "*/*",
+          "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "mailboxid": "{mailboxid}"
+        },
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true,
+          "encoding": null
+        },
+        "fullResponse": true
+      },
+      "functions": {
+        "getAttachment": ["authToken", "unid", "attachmentName", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "POST",
+        "url": "api/pim-v1/attachments/{unid}",
+        "headers": {
+          "accept": "*/*",
+          "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "mailboxid": "{mailboxid}"
+        },
+        "body": "{attachment}",
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true,
+          "encoding": null
+        }
+      },
+      "functions": {
+        "createAttachment": ["authToken", "unid", "attachment", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "DELETE",
+        "url": "api/pim-v1/attachments/{unid}/{attachmentName}",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "mailboxid": "{mailboxid}"
+        },
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "deleteAttachment": ["authToken", "unid", "attachmentName", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "GET",
+        "url": "api/pim-v1/people",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "documents": "{documents}",
+            "skip": "{skip}",
+            "count": "{count}",
+            "mailboxid": "{mailboxid}"
+        },
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "getContactEntries": ["authToken", "documents", "skip", "count", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "GET",
+        "url": "api/pim-v1/person/{unid}",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "mailboxid": "{mailboxid}"
+        },
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "getContactEntry": ["authToken", "unid", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "POST",
+        "url": "api/pim-v1/person",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "mailboxid": "{mailboxid}"
+        },
+        "body": "{itemstructure}",
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "createContactEntry": ["authToken", "itemstructure", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "PUT",
+        "url": "api/pim-v1/person/{unid}",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "mailboxid": "{mailboxid}"
+        },
+        "body": "{itemstructure}",
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "updateContactEntry": ["authToken", "unid", "itemstructure", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "DELETE",
+        "url": "api/pim-v1/person/{unid}",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "mailboxid": "{mailboxid}"
+        },
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "deleteContactEntry": ["authToken", "unid", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "GET",
+        "url": "api/pim-v1/tasks",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "documents": "{documents}",
+            "skip": "{skip}",
+            "count": "{count}",
+            "mailboxid": "{mailboxid}"
+        },
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "getTasks": ["authToken", "documents", "skip", "count", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "GET",
+        "url": "api/pim-v1/task/{unid}",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "mailboxid": "{mailboxid}"
+        },
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "getTask": ["authToken", "unid", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "POST",
+        "url": "api/pim-v1/task",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "mailboxid": "{mailboxid}"
+        },
+        "body": "{itemstructure}",
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "createTaskEntry": ["authToken", "itemstructure", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "PUT",
+        "url": "api/pim-v1/task/{unid}",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "mailboxid": "{mailboxid}"
+        },
+        "body": "{itemstructure}",
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "updateTaskEntry": ["authToken", "unid", "itemstructure", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "DELETE",
+        "url": "api/pim-v1/task/{unid}",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "mailboxid": "{mailboxid}"
+        },
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "deleteTaskEntry": ["authToken", "unid", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "GET",
+        "url": "api/pim-v1/notebook",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "documents": "{documents}",
+            "skip": "{skip}",
+            "count": "{count}",
+            "mailboxid": "{mailboxid}"
+        },
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "getNotes": ["authToken", "documents", "skip", "count", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "GET",
+        "url": "api/pim-v1/notebook/{unid}",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "mailboxid": "{mailboxid}"
+        },
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "getNote": ["authToken", "unid", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "POST",
+        "url": "api/pim-v1/notebook",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "mailboxid": "{mailboxid}"
+        },
+        "body": "{itemstructure}",
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "createNote": ["authToken", "itemstructure", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "PUT",
+        "url": "api/pim-v1/notebook/{unid}",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "mailboxid": "{mailboxid}"
+        },
+        "body": "{itemstructure}",
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "updateNote": ["authToken", "unid", "itemstructure", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "DELETE",
+        "url": "api/pim-v1/notebook/{unid}",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "mailboxid": "{mailboxid}"
+        },
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "deleteNote": ["authToken", "unid", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "GET",
+        "url": "api/pim-v1/ooo",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "userid": "{userid}",
+            "mailboxid": "{mailboxid}"
+        },
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "getOOO": ["authToken", "userid", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "PUT",
+        "url": "api/pim-v1/ooo",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "mailboxid": "{mailboxid}"
+        },
+        "body": "{itemstructure}",
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "updateOOO": ["authToken", "itemstructure", "mailboxid"]
+      }
+    }, 
+    {
+      "template": {
+        "method": "GET",
+        "url": "api/pim-v1/pimitem/{unid}",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "mailboxid": "{mailboxid}"
+        },
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "getPimItem": ["authToken", "unid", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "PUT",
+        "url": "api/pim-v1/pimitem/{unid}",
+        "headers": {
+          "accept": "application/json",
+          "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "mailboxid": "{mailboxid}"
+        },
+        "body": "{itemstructure}",
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "updatePimItem": ["authToken", "unid", "itemstructure", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "GET",
+        "url": "api/pim-v1/delegation",
+        "headers": {
+          "accept": "application/json",
+          "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+          "mailboxid": "{mailboxid}"
+        },
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "getDelegation": ["authToken", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "POST",
+        "url": "api/pim-v1/delegation",
+        "headers": {
+          "accept": "application/json",
+          "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+          "mailboxid": "{mailboxid}"
+        },
+        "body": "{delegationStructure}",
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "createReplaceDelegation": ["authToken", "delegationStructure", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "PATCH",
+        "url": "api/pim-v1/delegation",
+        "headers": {
+          "accept": "application/json",
+          "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+          "mailboxid": "{mailboxid}"
+        },
+        "body": "{updateDelegationStructure}",
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "updateDelegation": ["authToken", "updateDelegationStructure", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "DELETE",
+        "url": "api/pim-v1/delegation",
+        "headers": {
+          "accept": "application/json",
+          "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+          "delegate": "{delegate}",
+          "mailboxid": "{mailboxid}"
+        },
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "deleteDelegation": ["authToken", "delegate", "mailboxid"]
+      }
+    },  
+    {
+      "template": {
+        "method": "GET",
+        "url": "api/pim-v1/rules",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "mailboxid": "{mailboxid}"
+        },
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "getRules": ["authToken", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "GET",
+        "url": "api/pim-v1/rule/{ruleid}",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "mailboxid": "{mailboxid}"
+        },
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "getRule": ["authToken", "ruleid", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "POST",
+        "url": "api/pim-v1/rule",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+          "mailboxid": "{mailboxid}"
+        },
+        "body": "{ruleStructure}",
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "createRule": ["authToken", "ruleStructure", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "DELETE",
+        "url": "api/pim-v1/rule/{ruleid}",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "mailboxid": "{mailboxid}"
+        },
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "deleteRule": ["authToken", "ruleid", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "PATCH",
+        "url": "api/pim-v1/rule/{ruleid}",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "mailboxid": "{mailboxid}"
+        },
+        "body": "{updateStructure}",
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "updateRule": ["authToken", "ruleid", "updateStructure", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "POST",
+        "url": "api/pim-v1/search",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "skip": "{skip}",
+            "count": "{count}",
+            "mailboxid": "{mailboxid}"
+        },
+        "body": "{searchStructure}",
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "search": ["authToken", "searchStructure", "skip", "count", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "GET",
+        "url": "api/pim-v1/addresslookup",
+        "headers": {
+            "accept": "application/json",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "q": "{q}",
+            "skip": "{skip}",
+            "count": "{count}",
+            "mailboxid": "{mailboxid}", 
+            "fulltext": "{fulltext}",
+            "directoryid": "{directoryid}",
+            "all": "{all}"
+        },
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "lookupContactEntries": ["authToken", "q", "fulltext",  "directoryid",  "all", "skip", "count", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "GET",
+        "url": "api/pim-v1/avatar",
+        "headers": {
+            "accept": "image/png",
+            "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "email": "{email}",
+            "height": "{height}",
+            "width": "{width}"
+        },
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true,
+          "encoding": null
+        }
+      },
+      "functions": {
+        "getAvatar": ["authToken", "email", "height", "width"]
+      }
+    },
+    {
+      "template": {
+        "method": "GET",
+        "url": "api/pim-v1/subscription/{uuid}",
+        "headers": {
+          "accept": "application/json",
+          "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "mailboxid": "{mailboxid}"
+        },
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "getSubscription": ["authToken", "uuid", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "DELETE",
+        "url": "api/pim-v1/subscription/{uuid}",
+        "headers": {
+          "accept": "application/json",
+          "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "mailboxid": "{mailboxid}"
+        },
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "deleteSubscription": ["authToken", "uuid", "mailboxid"]
+      }
+    },
+    {
+      "template": {
+        "method": "POST",
+        "url": "api/pim-v1/subscription",
+        "headers": {
+          "accept": "application/json",
+          "Authorization": "Bearer {authToken}"
+        },
+        "query": {
+            "mailboxid": "{mailboxid}"
+        },
+        "body": "{subscriptionStructure}",
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "createSubscription": ["authToken", "subscriptionStructure", "mailboxid"]
+      }
+    }
+  ]
+}

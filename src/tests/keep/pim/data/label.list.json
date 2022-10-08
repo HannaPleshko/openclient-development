@@ -1,0 +1,110 @@
+[
+    {
+        "FolderId": "A4D87D90E1B19842852564FF006DED4E",
+        "View": "($All)",
+        "isFolder": "false",
+        "DocumentCount": 26,
+        "DisplayName": "All Documents"
+    },
+    {
+        "FolderId": "738CB93AE2E1B7F8852564B5001283E2",
+        "View": "($Calendar)",
+        "isFolder": "false",
+        "Alias": [
+            "Calendar"
+        ],
+        "DocumentCount": 2,
+        "DisplayName": "Calendar"
+    },
+    {
+        "FolderId": "21D822802DA4AA14852567D6005BD9EB",
+        "View": "($Contacts)",
+        "isFolder": "false",
+        "Alias": [
+            "People"
+        ],
+        "DocumentCount": 2,
+        "DisplayName": "Contacts"
+    },
+    {
+        "FolderId": "4490C896B844C5B085256521006913F9",
+        "View": "($Drafts)",
+        "isFolder": "false",
+        "Alias": [
+            "$Drafts"
+        ],
+        "DocumentCount": 4,
+        "DisplayName": "Drafts"
+    },
+    {
+        "FolderId": "38D46BF5E8F08834852564B500129B2C",
+        "View": "($Inbox)",
+        "isFolder": "true",
+        "DocumentCount": 3,
+        "DisplayName": "Inbox"
+    },
+    {
+        "FolderId": "739290EBC9A3D527852569690058A018",
+        "View": "($Journal)",
+        "isFolder": "false",
+        "Alias": [
+            "Notebook"
+        ],
+        "DocumentCount": 2,
+        "DisplayName": "Journal"
+    },
+    {
+        "FolderId": "AF10093768DDE30285256D0A006EEF2C",
+        "View": "($JunkMail)",
+        "isFolder": "true",
+        "Alias": [
+            "JunkMail"
+        ],
+        "DocumentCount": 1,
+        "DisplayName": "SPAM"
+    },
+    {
+        "FolderId": "DABA975B9FB113EB852564B5001283EA",
+        "View": "($Sent)",
+        "isFolder": "false",
+        "DocumentCount": 16,
+        "DisplayName": "Sent"
+    },
+    {
+        "FolderId": "849E52B943AFDEB18525667A0067FE00",
+        "View": "($SoftDeletions)",
+        "isFolder": "false",
+        "Alias": [
+            "($SoftDeletions)"
+        ],
+        "DocumentCount": 1,
+        "DisplayName": "Trash"
+    },
+    {
+        "FolderId": "C82CD0A7E61B2866852564B5001283EB",
+        "View": "($ToDo)",
+        "isFolder": "false",
+        "Alias": [
+            "Tasks"
+        ],
+        "DocumentCount": 2,
+        "DisplayName": "Tasks"
+    },
+    {
+        "FolderId": "5B5E8D05F94EBF6380257203005778E5",
+        "View": "(Birthdays & Anniversaries)",
+        "isFolder": "false",
+        "Alias": [
+            "BA"
+        ],
+        "DocumentCount": 0,
+        "DisplayName": "Birthdays & Anniversaries"
+    },
+    {
+        "FolderId": "F2E4D14FDEF27DCA002586BD00571A61",
+        "View": "TestTA1",
+        "isFolder": "true",
+        "DocumentCount": 0,
+        "DisplayName": "TestTA1"
+    }
+]

@@ -1,0 +1,83 @@
+{
+    "@unid": "38D46BF5E8F08834852564B500129B2C",
+    "@noteid": 1286,
+    "@created": "1997-06-12T22:23:13-05:00",
+    "@lastmodified": "2020-02-07T14:59:42Z",
+    "@lastaccessed": "2020-07-13T10:22:42-05:00",
+    "@size": 239494,
+    "@unread": false,
+    "@etag": "W/\" 5e3d7b5e\"",
+    "$AppHelpFormula": "@Command([OpenHelpDocument];[ClientHelp];\"(Help)\";\"MAIL_V_INBOX\")",
+    "$Collation": "com.hcl.domino.jna.internal.views.NotesCollationInfo@4419860b",
+    "$Collation1": "com.hcl.domino.jna.internal.views.NotesCollationInfo@2f363b63",
+    "$Collation10": "com.hcl.domino.jna.internal.views.NotesCollationInfo@dc0da8a3",
+    "$Collation11": "com.hcl.domino.jna.internal.views.NotesCollationInfo@1f83af4",
+    "$Collation2": "com.hcl.domino.jna.internal.views.NotesCollationInfo@59b40a80",
+    "$Collation3": "com.hcl.domino.jna.internal.views.NotesCollationInfo@49856b4c",
+    "$Collation4": "com.hcl.domino.jna.internal.views.NotesCollationInfo@a2b5a739",
+    "$Collation5": "com.hcl.domino.jna.internal.views.NotesCollationInfo@176fab0c",
+    "$Collation6": "com.hcl.domino.jna.internal.views.NotesCollationInfo@39103fce",
+    "$Collation7": "com.hcl.domino.jna.internal.views.NotesCollationInfo@879461bd",
+    "$Collation8": "com.hcl.domino.jna.internal.views.NotesCollationInfo@55e76056",
+    "$Collation9": "com.hcl.domino.jna.internal.views.NotesCollationInfo@5f6846a7",
+    "$Collection": "NotesObjectDescriptorStruct(auto-allocated@0x7ffaa00b6d20 (6 bytes)) {\n  short ObjectType@0x0=0x01\n  int RRV@0x2=0x1DC6\n}",
+    "$ColumnFormatExtItem": [
+        "$Sender1",
+        "$93",
+        "$98",
+        "$ToStuff"
+    ],
+    "$ColumnFormatItem": [
+        "$Sender1",
+        "$ToStuff"
+    ],
+    "$ColumnProfileDoc": "ColorProfile",
+    "$Comment": "Newly received mail messages.",
+    "$DesignerVersion": "8.5.3",
+    "$Flags": "FYd",
+    "$FormFormula": "REM {Begin translatable text};\r\nsubTxt := \"Message Recall: \";\r\nREM {End translatable text};\r\n\r\nREM {Begin DNT};\r\n@If((Form=\"Trace Report\" & @Contains(Subject;  subTxt)) | (Form=\"NonDelivery Report\" & @IsAvailable(RecallReport));\r\n\"Recall Response\";Form);\r\nREM {End DNT};",
+    "$Formula": "SELECT @All",
+    "$FormulaClass": "1",
+    "$FrameInfo": [
+        "MailFS",
+        "NotesView"
+    ],
+    "$Index": "",
+    "$LANGUAGE": "en",
+    "$Name": "($Inbox)",
+    "$PublicAccess": "1",
+    "$Revisions": [
+        "2019-11-07T07:25:52-05:00",
+        "2019-11-07T07:29:45-05:00",
+        "2019-11-07T07:52:33-05:00",
+        "2019-11-07T07:59:05-05:00",
+        "2019-11-12T05:18:33-05:00",
+        "2019-12-05T12:42:54+05:30",
+        "2019-12-30T02:46:00-05:00",
+        "2019-12-30T02:46:31-05:00",
+        "2019-12-30T02:46:57-05:00",
+        "2019-12-30T02:48:29-05:00",
+        "2019-12-30T02:49:20-05:00",
+        "2019-12-30T02:49:38-05:00",
+        "2019-12-30T02:51:08-05:00",
+        "2019-12-30T02:51:44-05:00",
+        "2019-12-30T02:52:26-05:00",
+        "2020-01-17T03:43:05-05:00",
+        "2020-01-20T05:31:17-05:00",
+        "2020-01-21T02:26:14-05:00"
+    ],
+    "$ThreadView": "$ThreadsEmbed",
+    "$TITLE": "($Inbox)",
+    "$UpdatedBy": [
+        "CN=Lotus Notes Template Development/O=Lotus Notes"
+    ],
+    "$V5ACTIONS": null,
+    "$VIEWFORMAT": "com.hcl.domino.jna.internal.views.JNADominoViewFormat@5253abfa",
+    "$ViewGlobalScript": "'++LotusScript Development Environment:2:5:(Options):0:74\nOption Public \nOption Explicit\n\n'++LotusScript Development Environment:2:5:(Forward):0:1\n\n'++LotusScript Development Environment:2:5:(Declarations):0:2\n\n\n",
+    "$ViewScript": "'++LotusScript Development Environment:2:5:(Options):0:74\nUse \"MiscMailCS\"\n\n'++LotusScript Development Environment:2:5:(Forward):0:1\nDeclare Sub Queryaddtofolder(Source As Notesuiview, Target As Variant, Continue As Variant)\nDeclare Sub Postopen(Source As Notesuiview)\n\n'++LotusScript Development Environment:2:5:(Declarations):0:2\n\n'++LotusScript Development Environment:2:2:BindEvents:1:129\nPrivate Sub BindEvents(Byval Objectname_ As String)\n\tStatic Source As NOTESUIVIEW\n\tSet Source = Bind(Objectname_)\n\tOn Event Queryaddtofolder From Source Call Queryaddtofolder\n\tOn Event Postopen From Source Call Postopen\nEnd Sub\n\n'++LotusScript Development Environment:2:2:Queryaddtofolder:1:12\nSub Queryaddtofolder(Source As Notesuiview, Target As Variant, Continue As Variant)\n\t\nEnd Sub\n'++LotusScript Development Environment:2:2:Postopen:1:12\nSub Postopen(Source As Notesuiview)\n\tDim Session As New NotesSession\n\tDim db As NotesDatabase\n\tDim CalProfile As NotesDocument\n\t\n\tSet db = Session.CurrentDatabase\n\tSet WS = New notesuiworkspace\n\t\n\tSet CalProfile = db.getprofiledocument(\"CalendarProfile\")\n\t\n\t'// If Mail Policy's Attention Indicator is applied, let's rebuild the Folder\n\tIf Not (CalProfile Is Nothing) Then\n\t\tIf CalProfile.HasItem(\"MPolicy_RebuildInbox\") Then\n\t\t\tIf CalProfile.GetItemValue(\"MPolicy_RebuildInbox\")(0) = \"1\" Then\t\t\t\t\n\t\t\t\tDim currentUser As String\n\t\t\t\tcurrentUser = Session.username\t\n\t\t\t\tDim accPriv As Long\t\n\t\t\t\taccPriv = db.QueryAccessPrivileges(currentUser)\t\t\n\t\t\t\tIf  (( accPriv And DBACL_CREATE_SHARED_FOLDERS_VIEWS ) > 0) Then\n\t\t\t\t\tCall ws.viewrebuild( True, True )\n\t\t\t\t\tCall ws.viewrefresh\n\t\t\t\t\tCall CalProfile.ReplaceItemValue(\"MPolicy_RebuildInbox\", \"\") '//Reset flag\n\t\t\t\t\tCall CalProfile.Save(True,False)\t\t\t\t\t\t\n\t\t\t\tEnd If\n\t\t\tEnd If\t\n\t\tEnd If\n\tEnd If\t\n\t\n\t'Name column sorting\n'\tDim shView As String\t\n'\tshView = \"i\"\n\tCall NameSortViewPO\t\n\t\nEnd Sub\n",
+    "$WebFlags": "S",
+    "DEBUG_SIG": "1",
+    "referenceFolder": [
+        "A4D87D90E1B19842852564FF006DED4E"
+    ]
+}

@@ -1,0 +1,24 @@
+{
+    "uid": "BDDB9AA9F1CE432C002586BD0056A807",
+    "updated": "2021-04-20T15:46:31Z",
+    "description": "This is an item created by Keep API Acceptance tests.",
+    "due": "2022-08-28T11:59:00Z",
+    "progress": "needs-action",
+    "priority": 2,
+    "start": "2022-08-25T08:00:00Z",
+    "title": "Created in Postman",
+    "referenceFolder": [
+        "C82CD0A7E61B2866852564B5001283EB"
+    ],
+    "type": "jstask",
+    "privacy": "public",
+    "participants": {
+        "Q049RXJuaWUgTXVwcGV0L089UHJvamVjdEtlZXA": {
+            "type": "Participant",
+            "email": "CN=Ernie Muppet/O=ProjectKeep",
+            "roles": {
+                "owner": true
+            }
+        }
+    }
+}

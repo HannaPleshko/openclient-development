@@ -1,0 +1,28 @@
+{
+  "name": "KeepCore",
+  "connector": "rest",
+  "crud": false,
+  "operations": [
+    {
+      "template": {
+        "method": "POST",
+        "url": "api/v1/auth",
+        "headers": {
+            "accept": "application/json",
+            "Content-Type": "application/json"
+        },
+        "body": {
+          "password": "{password}",
+          "username": "{username}"  
+        },
+        "options": {
+          "strictSSL": true,
+          "useQuerystring": true
+        }
+      },
+      "functions": {
+        "getJWTToken": ["username", "password"]
+      }
+    }
+  ]
+}

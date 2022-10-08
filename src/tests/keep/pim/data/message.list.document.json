@@ -1,0 +1,258 @@
+[
+    {
+        "@unid": "77DB4C5F5B324B61002586B600631C08",
+        "@noteid": 17034,
+        "@created": "2021-04-13T18:02:32Z",
+        "@lastmodified": "2021-04-13T18:02:32Z",
+        "@lastaccessed": "2021-04-13T18:02:32Z",
+        "@size": 1148,
+        "@unread": false,
+        "@etag": "W/\" 6075dcb8\"",
+        "@threadid": "77DB4C5F5B324B61002586B600631C08",
+        "$Abstract": "Testing it stays in inbox",
+        "$altPrincipal": "CN=James Godwin/OU=USA/O=PNPHCL",
+        "$Disclaimed": "1",
+        "$FolderRef": "38D46BF5E8F08834852564B500129B2C",
+        "$FolderRefFlags": [
+            0.0
+        ],
+        "$FolderRefID": [
+            27.0
+        ],
+        "$KeepPrivate": "",
+        "$LangFrom": "",
+        "$langPrincipal": "",
+        "$Mailer": "Lotus Domino Web Server Release 11.0.1FP1 July 20, 2020",
+        "$MessageID": "<OF77DB4C5F.5B324B61-ON002586B6.00631C08-002586B6.00631C0A@LocalDomain>",
+        "$MIMETrack": [
+            "Serialize by http on miramare.projectkeep.io/ProjectKeep(Release 11.0.1FP1|July 20, 2020) at 04/13/2021 18:02:32",
+            "Serialize complete at 04/13/2021 18:02:32"
+        ],
+        "$NameLanguageTags": "",
+        "$Orig": "77DB4C5F5B324B61002586B600631C08",
+        "$Revisions": [
+            "MINIMUM"
+        ],
+        "$SendAt": "",
+        "$TUA": "77DB4C5F5B324B61002586B600631C08",
+        "$UpdatedBy": [
+            "CN=RustyG Miramare/O=ProjectKeep",
+            "CN=miramare.projectkeep.io/O=ProjectKeep"
+        ],
+        "$V2AttachmentOptions": "0",
+        "AltCopyTo": "",
+        "AltFrom": "CN=RustyG Miramare/O=ProjectKeep",
+        "AltSendTo": "CN=Ernie Muppet/O=ProjectKeep@Keep",
+        "Categories": [
+            ""
+        ],
+        "Classification": "",
+        "ConfidentialString": "",
+        "CopyTo": "",
+        "DeliveredDate": "2021-04-13T18:02:32Z",
+        "DeliveryPriority": "N",
+        "DeliveryReport": "B",
+        "DocExExpireDate": "",
+        "Encrypt": "0",
+        "ExpandPersonalGroups": "1",
+        "Form": "Memo",
+        "From": "CN=RustyG Miramare/O=ProjectKeep",
+        "Importance": "2",
+        "In_Reply_To": "",
+        "INetFrom": "rustyg.miramare@quattro.rocks",
+        "MIME_Version": "1.0",
+        "PostedDate": "2021-04-13T18:02:32Z",
+        "Principal": "CN=James Godwin/OU=USA/O=PNPHCL",
+        "References": "",
+        "RemoveAtClose": "",
+        "ReturnReceipt": "0",
+        "RouteServers": [
+            "CN=miramare.projectkeep.io/O=ProjectKeep"
+        ],
+        "RouteTimes": [
+            {
+                "from": "2021-04-13T18:02:32Z",
+                "to": "2021-04-13T18:02:32Z"
+            }
+        ],
+        "RR2": "",
+        "s_PlainEditor": "0",
+        "SaveOptions": "",
+        "SendTo": "CN=Ernie Muppet/O=ProjectKeep@Keep",
+        "Sign": "0",
+        "Subject": "This should not be deleted"
+    },
+    {
+        "@unid": "028FC495431550D1002586B7005485A8",
+        "@noteid": 17966,
+        "@created": "2021-04-14T15:23:12Z",
+        "@lastmodified": "2021-04-14T15:23:12Z",
+        "@lastaccessed": "2021-04-14T15:23:12Z",
+        "@size": 151934,
+        "@unread": true,
+        "@etag": "W/\" 607708e0\"",
+        "@threadid": "028FC495431550D1002586B7005485A8",
+        "$FILES": [
+            "acceptancetest.json",
+            "openapi.quattro.json",
+            "EWSContact.txt"
+        ],
+        "$Abstract": "Testing multiple",
+        "$altPrincipal": "CN=James Godwin/OU=USA/O=PNPHCL",
+        "$Disclaimed": "1",
+        "$FILE": "com.hcl.domino.jna.data.JNAAttachment@d79be59a",
+        "$FolderRef": "38D46BF5E8F08834852564B500129B2C",
+        "$FolderRefFlags": [
+            0.0
+        ],
+        "$FolderRefID": [
+            51.0
+        ],
+        "$KeepPrivate": "",
+        "$LangFrom": "",
+        "$langPrincipal": "",
+        "$Mailer": "Lotus Domino Web Server Release 11.0.1FP1 July 20, 2020",
+        "$MessageID": "<OF028FC495.431550D1-ON002586B7.005485A8-002586B7.005485B9@LocalDomain>",
+        "$MIMETrack": [
+            "Serialize by http on miramare.projectkeep.io/ProjectKeep(Release 11.0.1FP1|July 20, 2020) at 04/14/2021 15:23:12",
+            "Serialize complete at 04/14/2021 15:23:12"
+        ],
+        "$NameLanguageTags": "",
+        "$Orig": "028FC495431550D1002586B7005485A8",
+        "$Revisions": [
+            "MINIMUM"
+        ],
+        "$SendAt": "",
+        "$TUA": "028FC495431550D1002586B7005485A8",
+        "$UpdatedBy": [
+            "CN=RustyG Miramare/O=ProjectKeep",
+            "CN=miramare.projectkeep.io/O=ProjectKeep"
+        ],
+        "$V2AttachmentOptions": "0",
+        "AltCopyTo": "",
+        "AltFrom": "CN=RustyG Miramare/O=ProjectKeep",
+        "AltSendTo": "CN=Ernie Muppet/O=ProjectKeep@Keep",
+        "Body": "NotesMIMEPart [options=[], type=null, boundary=, headers=, datalen=34]",
+        "Categories": [
+            ""
+        ],
+        "Classification": "",
+        "ConfidentialString": "",
+        "CopyTo": "",
+        "DeliveredDate": "2021-04-14T15:23:12Z",
+        "DeliveryPriority": "N",
+        "DeliveryReport": "B",
+        "DocExExpireDate": "",
+        "Encrypt": "0",
+        "ExpandPersonalGroups": "1",
+        "Form": "Memo",
+        "From": "CN=RustyG Miramare/O=ProjectKeep",
+        "Importance": "2",
+        "In_Reply_To": "",
+        "INetFrom": "rustyg.miramare@quattro.rocks",
+        "MIME_Version": "1.0",
+        "PostedDate": "2021-04-14T15:23:12Z",
+        "Principal": "CN=James Godwin/OU=USA/O=PNPHCL",
+        "References": "",
+        "RemoveAtClose": "",
+        "ReturnReceipt": "0",
+        "RouteServers": [
+            "CN=miramare.projectkeep.io/O=ProjectKeep"
+        ],
+        "RouteTimes": [
+            {
+                "from": "2021-04-14T15:23:12Z",
+                "to": "2021-04-14T15:23:12Z"
+            }
+        ],
+        "RR2": "",
+        "s_PlainEditor": "0",
+        "SaveOptions": "",
+        "SendTo": "CN=Ernie Muppet/O=ProjectKeep@Keep",
+        "Sign": "0",
+        "Subject": "Email with multiple attachments"
+    },
+    {
+        "@unid": "5B30EF7FA0568258002586B700552170",
+        "@noteid": 17970,
+        "@created": "2021-04-14T15:29:51Z",
+        "@lastmodified": "2021-04-14T15:29:51Z",
+        "@lastaccessed": "2021-04-14T15:29:51Z",
+        "@size": 1208,
+        "@unread": true,
+        "@etag": "W/\" 60770a6f\"",
+        "@threadid": "5B30EF7FA0568258002586B700552170",
+        "$Abstract": "This body  contains   rich   text .",
+        "$altPrincipal": "CN=James Godwin/OU=USA/O=PNPHCL",
+        "$Disclaimed": "1",
+        "$FolderRef": "38D46BF5E8F08834852564B500129B2C",
+        "$FolderRefFlags": [
+            0.0
+        ],
+        "$FolderRefID": [
+            52.0
+        ],
+        "$KeepPrivate": "",
+        "$LangFrom": "",
+        "$langPrincipal": "",
+        "$Mailer": "Lotus Domino Web Server Release 11.0.1FP1 July 20, 2020",
+        "$MessageID": "<OF5B30EF7F.A0568258-ON002586B7.00552170-002586B7.00552170@LocalDomain>",
+        "$MIMETrack": [
+            "Serialize by http on miramare.projectkeep.io/ProjectKeep(Release 11.0.1FP1|July 20, 2020) at 04/14/2021 15:29:51",
+            "Serialize complete at 04/14/2021 15:29:51"
+        ],
+        "$NameLanguageTags": "",
+        "$Orig": "5B30EF7FA0568258002586B700552170",
+        "$Revisions": [
+            "MINIMUM"
+        ],
+        "$SendAt": "",
+        "$TUA": "5B30EF7FA0568258002586B700552170",
+        "$UpdatedBy": [
+            "CN=RustyG Miramare/O=ProjectKeep",
+            "CN=miramare.projectkeep.io/O=ProjectKeep"
+        ],
+        "$V2AttachmentOptions": "0",
+        "AltCopyTo": "",
+        "AltFrom": "CN=RustyG Miramare/O=ProjectKeep",
+        "AltSendTo": "CN=Ernie Muppet/O=ProjectKeep@Keep",
+        "Categories": [
+            ""
+        ],
+        "Classification": "",
+        "ConfidentialString": "",
+        "CopyTo": "",
+        "DeliveredDate": "2021-04-14T15:29:51Z",
+        "DeliveryPriority": "N",
+        "DeliveryReport": "B",
+        "DocExExpireDate": "",
+        "Encrypt": "0",
+        "ExpandPersonalGroups": "1",
+        "Form": "Memo",
+        "From": "CN=RustyG Miramare/O=ProjectKeep",
+        "Importance": "2",
+        "In_Reply_To": "",
+        "INetFrom": "rustyg.miramare@quattro.rocks",
+        "MIME_Version": "1.0",
+        "PostedDate": "2021-04-14T15:29:51Z",
+        "Principal": "CN=James Godwin/OU=USA/O=PNPHCL",
+        "References": "",
+        "RemoveAtClose": "",
+        "ReturnReceipt": "0",
+        "RouteServers": [
+            "CN=miramare.projectkeep.io/O=ProjectKeep"
+        ],
+        "RouteTimes": [
+            {
+                "from": "2021-04-14T15:29:51Z",
+                "to": "2021-04-14T15:29:51Z"
+            }
+        ],
+        "RR2": "",
+        "s_PlainEditor": "0",
+        "SaveOptions": "",
+        "SendTo": "CN=Ernie Muppet/O=ProjectKeep@Keep",
+        "Sign": "0",
+        "Subject": "Rich text body"
+    }
+]

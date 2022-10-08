@@ -1,0 +1,36 @@
+{
+    "@unid": "913874D5EC9A905D002586BD00560681",
+    "@noteid": 29726,
+    "@created": "2021-04-20T15:39:37Z",
+    "@lastmodified": "2021-04-20T15:39:37Z",
+    "@lastaccessed": "2021-04-20T15:39:37Z",
+    "@size": 236,
+    "@unread": true,
+    "@etag": "W/\" 607ef5b9\"",
+    "@threadid": "913874D5EC9A905D002586BD00560681",
+    "$Abstract": "I am the body",
+    "$BorderColor": "DEDEC0",
+    "$Revisions": "2021-04-20T15:39:37Z",
+    "$TUA": "913874D5EC9A905D002586BD00560681",
+    "$UpdatedBy": [
+        "CN=Ernie Muppet/O=ProjectKeep"
+    ],
+    "Body": "I am the body",
+    "Categories": [
+        "Cat1",
+        "Cat2"
+    ],
+    "DiaryDate": "Tue Apr 20 15:39:37 UTC 2021",
+    "FolderOptions": 2.0,
+    "Form": "JournalEntry",
+    "Subject": "ACCEPTANCE TEST: I am the subject",
+    "TimeCreated": "2021-04-20T15:39:37Z",
+    "webbuttonpressed": "",
+    "WebCategories": [
+        "Cat1",
+        "Cat2"
+    ],
+    "referenceFolder": [
+        "739290EBC9A3D527852569690058A018"
+    ]
+}

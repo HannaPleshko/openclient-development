@@ -1,0 +1,64 @@
+{
+    "@unid": "F2E4D14FDEF27DCA002586BD00571A61",
+    "@noteid": 32858,
+    "@created": "2021-04-20T15:51:23Z",
+    "@lastmodified": "2021-04-20T15:51:23Z",
+    "@lastaccessed": "2021-04-20T15:51:23Z",
+    "@size": 160886,
+    "@unread": false,
+    "@etag": "W/\" 607ef87b\"",
+    "$AppHelpFormula": "@Command([OpenHelpDocument];[ClientHelp];\"(Help)\";\"MAIL_V_INBOX\")",
+    "$Collation": "com.hcl.domino.jna.internal.views.NotesCollationInfo@b8b33cb2",
+    "$Collation1": "com.hcl.domino.jna.internal.views.NotesCollationInfo@586f4361",
+    "$Collation10": "com.hcl.domino.jna.internal.views.NotesCollationInfo@3feb4cb",
+    "$Collation11": "com.hcl.domino.jna.internal.views.NotesCollationInfo@71da380a",
+    "$Collation2": "com.hcl.domino.jna.internal.views.NotesCollationInfo@daf2c0a9",
+    "$Collation3": "com.hcl.domino.jna.internal.views.NotesCollationInfo@bbcd9b71",
+    "$Collation4": "com.hcl.domino.jna.internal.views.NotesCollationInfo@f05be21c",
+    "$Collation5": "com.hcl.domino.jna.internal.views.NotesCollationInfo@f897ed9e",
+    "$Collation6": "com.hcl.domino.jna.internal.views.NotesCollationInfo@6c993b3e",
+    "$Collation7": "com.hcl.domino.jna.internal.views.NotesCollationInfo@3eea2727",
+    "$Collation8": "com.hcl.domino.jna.internal.views.NotesCollationInfo@275bd2e9",
+    "$Collation9": "com.hcl.domino.jna.internal.views.NotesCollationInfo@59a2294a",
+    "$Collection": "NotesObjectDescriptorStruct(auto-allocated@0x7ffaec16e610 (6 bytes)) {\n  short ObjectType@0x0=0x01\n  int RRV@0x2=0x805E\n}",
+    "$ColumnFormatExtItem": [
+        "$Sender1",
+        "$93",
+        "$98",
+        "$ToStuff"
+    ],
+    "$ColumnFormatItem": [
+        "$Sender1",
+        "$ToStuff"
+    ],
+    "$ColumnProfileDoc": "ColorProfile",
+    "$Comment": "",
+    "$DesignerVersion": "8.5.3",
+    "$Flags": "3PFY",
+    "$FormatNote": "38D46BF5E8F08834852564B500129B2C",
+    "$FormFormula": "REM {Begin translatable text};\r\nsubTxt := \"Message Recall: \";\r\nREM {End translatable text};\r\n\r\nREM {Begin DNT};\r\n@If((Form=\"Trace Report\" & @Contains(Subject;  subTxt)) | (Form=\"NonDelivery Report\" & @IsAvailable(RecallReport));\r\n\"Recall Response\";Form);\r\nREM {End DNT};",
+    "$Formula": "SELECT @All",
+    "$FormulaClass": "1",
+    "$FrameInfo": [
+        "MailFS",
+        "NotesView"
+    ],
+    "$Index": "",
+    "$Name": "TestTA1",
+    "$PublicAccess": "1",
+    "$ThreadView": "$ThreadsEmbed",
+    "$TITLE": "TestTA1",
+    "$UpdatedBy": [
+        "CN=miramare.projectkeep.io/O=ProjectKeep",
+        "CN=Ernie Muppet/O=ProjectKeep"
+    ],
+    "$V5ACTIONS": null,
+    "$VIEWFORMAT": "com.hcl.domino.jna.internal.views.JNADominoViewFormat@ee886d91",
+    "$ViewGlobalScript": "'++LotusScript Development Environment:2:5:(Options):0:74\nOption Public \nOption Explicit\n\n'++LotusScript Development Environment:2:5:(Forward):0:1\n\n'++LotusScript Development Environment:2:5:(Declarations):0:2\n\n\n",
+    "$ViewInheritedFrom": "($Inbox)",
+    "$ViewScript": "'++LotusScript Development Environment:2:5:(Options):0:74\nUse \"MiscMailCS\"\n\n'++LotusScript Development Environment:2:5:(Forward):0:1\nDeclare Sub Queryaddtofolder(Source As Notesuiview, Target As Variant, Continue As Variant)\nDeclare Sub Postopen(Source As Notesuiview)\n\n'++LotusScript Development Environment:2:5:(Declarations):0:2\n\n'++LotusScript Development Environment:2:2:BindEvents:1:129\nPrivate Sub BindEvents(Byval Objectname_ As String)\n\tStatic Source As NOTESUIVIEW\n\tSet Source = Bind(Objectname_)\n\tOn Event Queryaddtofolder From Source Call Queryaddtofolder\n\tOn Event Postopen From Source Call Postopen\nEnd Sub\n\n'++LotusScript Development Environment:2:2:Queryaddtofolder:1:12\nSub Queryaddtofolder(Source As Notesuiview, Target As Variant, Continue As Variant)\n\t\nEnd Sub\n'++LotusScript Development Environment:2:2:Postopen:1:12\nSub Postopen(Source As Notesuiview)\n\tDim Session As New NotesSession\n\tDim db As NotesDatabase\n\tDim CalProfile As NotesDocument\n\t\n\tSet db = Session.CurrentDatabase\n\tSet WS = New notesuiworkspace\n\t\n\tSet CalProfile = db.getprofiledocument(\"CalendarProfile\")\n\t\n\t'// If Mail Policy's Attention Indicator is applied, let's rebuild the Folder\n\tIf Not (CalProfile Is Nothing) Then\n\t\tIf CalProfile.HasItem(\"MPolicy_RebuildInbox\") Then\n\t\t\tIf CalProfile.GetItemValue(\"MPolicy_RebuildInbox\")(0) = \"1\" Then\t\t\t\t\n\t\t\t\tDim currentUser As String\n\t\t\t\tcurrentUser = Session.username\t\n\t\t\t\tDim accPriv As Long\t\n\t\t\t\taccPriv = db.QueryAccessPrivileges(currentUser)\t\t\n\t\t\t\tIf  (( accPriv And DBACL_CREATE_SHARED_FOLDERS_VIEWS ) > 0) Then\n\t\t\t\t\tCall ws.viewrebuild( True, True )\n\t\t\t\t\tCall ws.viewrefresh\n\t\t\t\t\tCall CalProfile.ReplaceItemValue(\"MPolicy_RebuildInbox\", \"\") '//Reset flag\n\t\t\t\t\tCall CalProfile.Save(True,False)\t\t\t\t\t\t\n\t\t\t\tEnd If\n\t\t\tEnd If\t\n\t\tEnd If\n\tEnd If\t\n\t\n\t'Name column sorting\n'\tDim shView As String\t\n'\tshView = \"i\"\n\tCall NameSortViewPO\t\n\t\nEnd Sub\n",
+    "$WebFlags": "S",
+    "referenceFolder": [
+        "A4D87D90E1B19842852564FF006DED4E"
+    ]
+}
